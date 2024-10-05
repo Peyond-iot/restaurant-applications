@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Menu Admin</h1>
+
+    <!-- Table to Display Menu Items -->
+    <table id="menuTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JavaScript will populate menu items here -->
+      </tbody>
+    </table>
+
+    <!-- Form for Creating or Updating Menu Items -->
+    <div class="form-container">
+      <h2 id="formTitle">Add Menu Item</h2>
+      <form id="menuForm">
+        <input type="hidden" id="menuId" />
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+        
+        <label for="category">Category</label>
+        <input type="text" id="category" required>
+        
+        <label for="price">Price</label>
+        <input type="number" id="price" required>
+        
+        <label for="size">Size</label>
+        <input type="text" id="size">
+        
+        <button type="submit" id="submitBtn">Add Item</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
