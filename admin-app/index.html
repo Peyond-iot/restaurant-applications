@@ -18,6 +18,7 @@
           <th>Category</th>
           <th>Price</th>
           <th>Size</th>
+          <th>Image</th> <!-- New Column for Images -->
           <th>Actions</th>
         </tr>
       </thead>
@@ -29,7 +30,7 @@
     <!-- Form for Creating or Updating Menu Items -->
     <div class="form-container">
       <h2 id="formTitle">Add Menu Item</h2>
-      <form id="menuForm">
+      <form id="menuForm" enctype="multipart/form-data"> <!-- Added enctype for image upload -->
         <input type="hidden" id="menuId" />
         <label for="name">Name</label>
         <input type="text" id="name" required>
@@ -42,6 +43,9 @@
         
         <label for="size">Size</label>
         <input type="text" id="size">
+
+        <label for="image">Image</label>
+        <input type="file" id="image" accept="image/*" required> <!-- Added file input for image -->
         
         <button type="submit" id="submitBtn">Add Item</button>
       </form>

@@ -7,6 +7,7 @@ const menuItemSchema = new mongoose.Schema({
   size: { type: String }, // e.g., Small, Medium, Large
   description: { type: String },
   availability: { type: Boolean, default: true }, // to indicate if the item is in stock
+  imagePath: { type: String }, // Path to the stored image
   createdAt: { type: Date, default: Date.now },
 });
 

@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>${menuItem.category}</td>
           <td>${menuItem.price}</td>
           <td>${menuItem.size || "-"}</td>
+          <td><img src="${menuItem.imagePath}" alt="${
+        menuItem.name
+      }" /></td> <!-- Display image -->
           <td>
             <button class="edit-btn" data-id="${menuItem._id}">Edit</button>
             <button class="delete-btn" data-id="${menuItem._id}">Delete</button>
@@ -33,30 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
   menuForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const menuItem = {
-      name: document.getElementById("name").value,
-      category: document.getElementById("category").value,
-      price: document.getElementById("price").value,
-      size: document.getElementById("size").value,
-    };
+    const formData = new FormData(menuForm); // Create FormData object to handle file upload
 
     const menuId = document.getElementById("menuId").value;
-    console.log(menuId);
     if (menuId) {
       // Update existing menu item
       await fetch(`http://localhost:5000/api/menuItems/${menuId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(menuItem),
+        body: formData, // Send form data with image
       });
     } else {
       // Create new menu item
       await fetch("http://localhost:5000/api/menuItems", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(menuItem),
+        body: formData, // Send form data with image
       });
     }
+
     menuForm.reset();
     fetchMenuItems();
   });
